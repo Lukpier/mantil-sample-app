@@ -1,0 +1,34 @@
+# Here you can define various configuration parameters for functions
+# such as environment variables, memory size, execution schedule and timeout duration.
+# These can be defined on a project, stage or function level. If the same parameter is
+# defined on multiple levels the lowest level will take precedence.
+# For example, uncommenting the config below will result in
+# the function ping having the following configuration:
+# memory_size: 512
+# timeout: 60
+# cron: "* * * * ? *"
+# env:
+#   KEY: project
+#   KEY2: stage
+#   KEY3: function
+
+project:
+  memory_size: 128
+  timeout: 30
+  env:
+    API_KEY: ''
+    SENDER_ADDRESS: ''
+    SENDER_PASS: ''
+    SENDER_SMTP_HOST: 'smtp.gmail.com'
+    SENDER_SMTP_PORT: '587'
+  stages: 
+    - name: development
+      memory_size: 256
+      timeout: 60
+      env:
+        RECEIVER_ADDRESS: ''
+    - name: production
+      memory_size: 256
+      timeout: 60
+      env:
+        RECEIVER_ADDRESS: ''
